@@ -1,0 +1,36 @@
+<!--<div class="container">
+    
+</div>-->
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-6">
+      <app-profile></app-profile>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+      <h4>Analysis</h4>
+      <div class="row">
+        <div class="col-6">
+          <p-card header="Recommended Plans">
+            <app-radar-chart-card></app-radar-chart-card>
+            <ng-template pTemplate="footer">
+              <button type="button" class="btn btn-primary" (click)="handleClick($event)">
+                View Plans
+              </button>
+            </ng-template>
+          </p-card>
+        </div>
+        <div class="col-6">
+          <p-card header="Yearly Savings">
+            <app-pie-chart-card></app-pie-chart-card>
+            <ng-template pTemplate="footer">
+              Utilized - 20K, remaining - 2K, Total - 22K
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+      <p><a class="btn btn-secondary" role="button" (click)="clearSession()">View details &raquo;</a></p>
+    </div>
+  </div>

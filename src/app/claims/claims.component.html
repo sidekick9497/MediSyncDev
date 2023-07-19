@@ -1,0 +1,37 @@
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>John Doe</mat-card-title>
+          <mat-card-subtitle>Prime Member</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/credit-card-clipart-design-illustration-free-png.webp" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            John doe is a 30 year old male with potential diabetes risk.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="showMap = false">INITIATE CLAIM</button>
+          <button mat-button>SHARE</button>
+          <button mat-button (click)="showMap = true">HOSPITAL-LOCATOR</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <ng-template [ngIf]="showMap" [ngIfElse]="loading">
+        <h4>Hospital Locator</h4><br />
+        <div class="container">
+          <img src="assets/map.PNG" />
+        </div>
+      </ng-template>
+      <ng-template #loading>
+        <app-insurance-claim-form></app-insurance-claim-form>
+      </ng-template>
+      
+    </div>
+  </div>

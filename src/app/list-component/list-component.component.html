@@ -1,0 +1,34 @@
+<h4 class="p-3 text-center">Recommended Plans</h4>
+<div class="container">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Monthly Premium</th>
+        <th>Deductible</th>
+        <th>Out of Pocket Max</th>
+        <th>Buy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of plans">
+        <td>{{user.plan_name}}</td>
+        <td>{{user.monthly_premium}}</td>
+        <td>{{user.deductible}}</td>
+        <td>{{user.out_of_pocket_max}}</td>
+        <td>
+          <ng-template [ngIf]="this.notifyService.getData(this.idKey) != user.id" [ngIfElse]="loading">
+            <button type="button" class="btn btn-primary" (click)="showToasterSuccess(user.plan_name, user.id)">
+              +
+            </button>
+          </ng-template>
+          <ng-template #loading>
+            <button type="button" class="btn btn-danger" (click)="clearSession()">
+              -
+            </button>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

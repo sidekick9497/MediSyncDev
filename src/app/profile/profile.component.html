@@ -1,0 +1,48 @@
+<!-- profile.component.html -->
+
+<div class="container profile">
+  <div class="profile-header text-center">
+    <img src="{{ user.photo }}" alt="User Photo" class="rounded-circle profile-photo">
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.email }}</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="profile-details">
+        <h5>Personal Information</h5>
+        <p><strong>Date of Birth:</strong> {{ user.personalInfo.dateOfBirth }}</p>
+        <p><strong>Gender:</strong> {{ user.personalInfo.gender }}</p>
+        <p><strong>Address:</strong> {{ user.personalInfo.address }}</p>
+        <p><strong>Phone:</strong> {{ user.personalInfo.phone }}</p>
+
+        <h5>Health Data</h5>
+        <p><strong>Height:</strong> {{ user.healthData.height }} cm</p>
+        <p><strong>Weight:</strong> {{ user.healthData.weight }} kg</p>
+        <p><strong>Blood Pressure:</strong> {{ user.healthData.bloodPressure }}</p>
+        <p><strong>Heart Rate:</strong> {{ user.healthData.heartRate }} bpm</p>
+        <p><strong>Blood Sugar Level:</strong> {{ user.healthData.bloodSugar }} mg/dL</p>
+
+        <h5>Medical History</h5>
+        <p>{{ user.medicalHistory }}</p>
+      </div>
+    </div>
+    <ng-template [ngIf]="this.router.url.includes('profile') && this.noty.getPlanInformation() != null">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-12">
+            <p-card header="Current Plan">
+              <p><strong>Name:</strong> {{ this.noty.getPlanInformation().plan_name }}</p>
+              <p><strong>Monthly Premium:</strong> ${{ this.noty.getPlanInformation().monthly_premium }}</p>
+              <p><strong>Deductible:</strong> ${{ this.noty.getPlanInformation().deductible }}</p>
+              <p><strong>Co Insurance:</strong> {{ this.noty.getPlanInformation().coinsurance }}</p>
+              <p><strong>Out of pocket max:</strong> {{ this.noty.getPlanInformation().out_of_pocket_max }}</p>
+            </p-card>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
